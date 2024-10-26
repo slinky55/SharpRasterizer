@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "6lkw6SIzDlw=",
+  "success": true,
+  "projectFilePath": "/home/slinky/src/SoftRasterizer/SoftRasterizer/SoftRasterizer.csproj",
+  "expectedPackageFiles": [
+    "/home/slinky/.nuget/packages/skiasharp/3.0.0-preview.4.1/skiasharp.3.0.0-preview.4.1.nupkg.sha512",
+    "/home/slinky/.nuget/packages/skiasharp.nativeassets.linux.nodependencies/3.0.0-preview.4.1/skiasharp.nativeassets.linux.nodependencies.3.0.0-preview.4.1.nupkg.sha512",
+    "/home/slinky/.nuget/packages/skiasharp.nativeassets.macos/3.0.0-preview.4.1/skiasharp.nativeassets.macos.3.0.0-preview.4.1.nupkg.sha512",
+    "/home/slinky/.nuget/packages/skiasharp.nativeassets.win32/3.0.0-preview.4.1/skiasharp.nativeassets.win32.3.0.0-preview.4.1.nupkg.sha512"
+  ],
+  "logs": []
+}
