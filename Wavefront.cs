@@ -5,7 +5,6 @@ namespace SoftRasterizer;
 public class Wavefront
 {
     private List<Vec3> _vertices = [];
-    private List<Vec3> _normals = [];
     private List<Face> _faces = [];
 
     private void AddVertex(Vec3 vertex)
@@ -13,24 +12,26 @@ public class Wavefront
         _vertices.Add(vertex);
     }
 
-    private void AddNormal(Vec3 normal)
-    {
-        _normals.Add(normal);
-    }
-
     private void AddFace(Face face)
     {
         _faces.Add(face);
     }
 
-    private void ParseVertex(string line)
+    private void ParseVertex(string[] data)
     {
-        var tokens = line.Split(' ');
+        var x = float.Parse(data[0]);
+        var y = float.Parse(data[1]);
+        var z = float.Parse(data[2]);
+        
+        AddVertex(new Vec3(x, y, z));
     }
 
-    private void ParseFace(string line)
+    private void ParseFace(string[] data)
     {
-        var tokens = line.Split(' ');
+        foreach (var point in data)
+        {
+            Console.WriteLine(point);
+        }
     }
 
     public static Wavefront? FromFile(string filename)
@@ -38,19 +39,21 @@ public class Wavefront
         try
         {
             var obj = new Wavefront();
+            
             foreach (var line in File.ReadLines(filename))
             {
-                var type = line[0];
-                
+                var data = line.Split(' ');
+                var type = data[0];
                 switch (type)
                 {
-                    case 'v':
-                        var data = line.Substring(1, line.Length).TrimStart();
-                        obj.ParseVertex(data);
+                    case "v":
+                        obj.ParseVertex(data[1..]);
                         break;
-                    case 'f':
-                        
+                    case "f":
+                        obj.ParseFace(data[1..]);
                         break;
+                    default:
+                        continue;
                 }
             }
 
@@ -62,6 +65,4 @@ public class Wavefront
             return null;
         }
     }
-    
-    
 }

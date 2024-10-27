@@ -1,3 +1,3 @@
 namespace SoftRasterizer;
 
-public record Face(List<uint> Indices);
+public record Face(List<Tuple<uint, uint, uint>> Indices);
